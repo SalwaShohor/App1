@@ -50,7 +50,7 @@ public class ArrayListStringManipulator {
         stringManipulator.sortList();
         System.out.println(stringManipulator.getArrayList().toString());
 
-        stringManipulator.removeElementByValue("Banana");
+        stringManipulator.removeElementByValue("UAE");
         System.out.println(stringManipulator.getArrayList().toString());
 
         stringManipulator.removeElementByIndex(2);
