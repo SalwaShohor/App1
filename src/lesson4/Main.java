@@ -19,7 +19,33 @@ class Outer {
         public String getName() {
             return name;
         }
+
+        
     }
+
+    //Inside the Outer class, create an inner class named Inner.
+    class Inner2 {
+
+        // Add a private field name of type String to the Inner class.
+        private String name;
+        
+        // Implement a constructor for the Inner class that takes a String parameter 
+        // and initializes the name field.
+        public Inner2(String name) {
+            this.name = name;
+        }
+        
+        // Add a method named getName to the Inner class that returns the value of the name field.
+        public String getName() {
+            return name;
+        }
+
+        
+    }
+
+
+
+
 }
 
 // Create a class named Main with a main method.
