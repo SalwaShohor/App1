@@ -1,7 +1,14 @@
 package lesson7.Exercise;
 
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.net.URL;
+// import com.fasterxml.jackson.databind.JsonNode;
+// import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class FileOperations {
 
@@ -52,6 +59,16 @@ public class FileOperations {
         // Encrypt and Decrypt a text file
         encryptFile("encrypt.txt", 3);
         decryptFile("encrypt.txt", 3);
+
+        // Read content from an HTTP URL
+        readHttpUrl("https://www.example.com");
+
+        // Pattern match text expression
+        patternMatch("This is a sample text with pattern");
+
+        // Read a JSON file and map to an object
+        readJsonFile("example.json");
+  
 
         scanner.close();
     }
@@ -202,4 +219,59 @@ public class FileOperations {
     private static String decryptLine(String line, int shift) {
         return encryptLine(line, 26 - shift); // Decryption is the same as encryption with the opposite shift
     }
+
+      // Function to read content from an HTTP URL
+    private static void readHttpUrl(String urlString) {
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+                System.out.println("Content from " + urlString + ":");
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
+                System.out.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Function to perform pattern matching on a text expression
+    private static void patternMatch(String text) {
+        System.out.print("Enter a pattern to match: ");
+        String patternString = new Scanner(System.in).nextLine();
+        Pattern pattern = Pattern.compile(patternString);
+        Matcher matcher = pattern.matcher(text);
+
+        System.out.println("Matches for pattern \"" + patternString + "\":");
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
+        System.out.println();
+    }
+
+    // Function to read a JSON file and map it to an object
+    // private static void readJsonFile(String fileName) {
+    //     try {
+    //         ObjectMapper objectMapper = new ObjectMapper();
+    //         JsonNode jsonNode = objectMapper.readTree(new File(fileName));
+
+    //         // Assuming the JSON structure contains a field named "message"
+    //         JsonNode messageNode = jsonNode.get("message");
+    //         if (messageNode != null) {
+    //             String message = messageNode.asText();
+    //             System.out.println("Message from JSON file: " + message);
+    //         } else {
+    //             System.out.println("Invalid JSON file structure");
+    //         }
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
+
+
 }
