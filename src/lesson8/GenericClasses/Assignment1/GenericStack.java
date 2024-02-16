@@ -30,13 +30,22 @@ public class GenericStack<T> {
         GenericStack<Integer> intStack = new GenericStack<>();
         intStack.push(10);
         intStack.push(20);
-        System.out.println("Popped from intStack: " + intStack.pop());
-        System.out.println("Is intStack empty? " + intStack.isEmpty());
+        System.out.println("Popped from intStack: " + intStack.pop() + "\n");
+        System.out.println("Is intStack empty? " + intStack.isEmpty()+ "\n");
 
         // test GenericStack with String
         GenericStack<String> stringStack = new GenericStack<>();
         stringStack.push("Hello");
-        stringStack.push()
+        stringStack.push("World");
+        System.out.println("Popped from stringStack: " + stringStack.pop() + "\n");
+        System.out.println("Is stringStack empty? " + stringStack.isEmpty() + "\n");
+
+        // test GenericStack with Double
+        GenericStack<Double> doubleStack = new GenericStack<>();
+        doubleStack.push(3.14);
+        doubleStack.push(2.71);
+        System.out.println("Popped from doubleStack: " + doubleStack.pop() + "\n");
+        System.out.println("Is doubleStack Empty? " + doubleStack.isEmpty() + "\n");
     }
     
 }
