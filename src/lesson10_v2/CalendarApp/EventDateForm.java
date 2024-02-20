@@ -1,4 +1,4 @@
-package lesson10.CalendarApp;
+package lesson10_v2.CalendarApp;
 
 import javax.swing.*;
 import java.awt.*;

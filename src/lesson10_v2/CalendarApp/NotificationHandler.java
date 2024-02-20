@@ -1,4 +1,4 @@
-package lesson10.CalendarApp;
+package lesson10_v2.CalendarApp;
 
 // The NotificationHandler class is responsible for handling event notifications within the calendar application.
 // It contains a method showNotification that displays a notification message using a dialog box from the Swing library.

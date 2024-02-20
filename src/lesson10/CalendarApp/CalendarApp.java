@@ -3,15 +3,10 @@ package lesson10.CalendarApp;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-// The CalendarApp class extends JFrame and represents the main graphical interface for the calendar application.
-// It initializes and manages the GUI components using the Swing API, including buttons for adding events, saving events, and loading events.
-// The class also contains the main method for launching the calendar application.
 
 public class CalendarApp extends JFrame {
     private List<Event> events;
@@ -48,26 +43,6 @@ public class CalendarApp extends JFrame {
             }
         });
 
-        JButton loadButton = new JButton("Load Events");
-
-        loadButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (events.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No events to load.", "Information", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JFrame eventListFrame = new JFrame("Event List");
-                    eventListFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    eventListFrame.setSize(300, 200);
-                    eventListFrame.setLocationRelativeTo(null);
-
-                    eventListFrame.add(new JScrollPane(eventList));
-
-                    eventListFrame.setVisible(true);
-                }
-            }
-        });
-
         JPanel formPanel = new JPanel(new GridLayout(4, 2));
         formPanel.add(new JLabel("Event Name:"));
         formPanel.add(eventNameField);
@@ -78,12 +53,8 @@ public class CalendarApp extends JFrame {
         formPanel.add(new JLabel()); // Empty label for spacing
         formPanel.add(submitButton);
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(loadButton);
-
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(formPanel, BorderLayout.NORTH);
-        mainPanel.add(buttonPanel, BorderLayout.CENTER);
 
         add(mainPanel);
 
@@ -100,4 +71,3 @@ public class CalendarApp extends JFrame {
         });
     }
 }
-
