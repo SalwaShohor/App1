@@ -11,8 +11,8 @@ public class Question20 {
         list.add("A");
         list.add("E");
         list.add("I");
-        list.add("O"); // Corrected case for "O"
-        list.add("U"); // Corrected case for "U"
+        list.add("O"); 
+        list.add("U"); 
         list.addAll(list.subList(0, 4)); // Line n2
         System.out.println(list);
     }
